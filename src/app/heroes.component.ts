@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal }          from '@ng-bootstrap/ng-bootstrap';
 import { Router }            from '@angular/router';
 
 import { Hero }                from './hero';
 import { HeroService }         from './hero.service';
+import { HeroDetailComponent } from './hero-detail.component';
 
 @Component({
   selector: 'my-heroes',
@@ -15,7 +17,13 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
+    private modalService: NgbModal,
     private router: Router) { }
+
+  open(): void {
+    const modalRef = this.modalService.open(HeroDetailComponent);
+    modalRef.componentInstance.hero = this.selectedHero;
+  }
 
   getHeroes(): void {
     this.heroService
