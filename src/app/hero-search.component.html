@@ -1,10 +1,16 @@
 <div id="search-component">
   <h4>Hero Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let hero of heroes | async"
-         (click)="gotoDetail(hero)" class="search-result" >
-      {{hero.name}}
-    </div>
-  </div>
+  <!-- <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />-->
+  <input id="search-box" type="text" class="form-control"
+         [(ngModel)]="model"
+         [ngbTypeahead]="search"
+         [resultFormatter]="formatMatches"
+         [inputFormatter]="formatMatches"
+         (selectItem)="selected($event.item)"
+         placeholder="search" />
+</div>
+<div *ngIf="hero">
+  <h2>
+    {{hero.name | uppercase}} is my hero
+  </h2>
 </div>
