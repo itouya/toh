@@ -1,4 +1,6 @@
+import { HeroDetailComponent } from './hero-detail.component';
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Observable }        from 'rxjs/Observable';
 
@@ -28,7 +30,8 @@ export class HeroSearchComponent {
   hero: Hero;
 
   constructor(
-    private heroSearchService: HeroSearchService) {}
+    private heroSearchService: HeroSearchService,
+    private modalService: NgbModal) {}
 
   formatMatches = (value: any) => value.name || '';
   search = (text$: Observable<string>) =>
@@ -47,6 +50,7 @@ export class HeroSearchComponent {
     .do(() => this.searching = false);
 
   selected(hero: Hero): void {
-    this.hero = hero;
+    const modalRef = this.modalService.open(HeroDetailComponent);
+    modalRef.componentInstance.hero = hero;
   }
 }
