@@ -39,7 +39,7 @@ export class HeroSearchComponent {
       .debounceTime(300)
       .distinctUntilChanged()
       .do(() => this.searching = true)
-    .switchMap(term =>
+    .switchMap(term => term.length < 2 ? [] :
       this.heroSearchService.search(term)
       .do(() => this.searchFailed = false)
       .catch(() => {

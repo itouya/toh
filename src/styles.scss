@@ -1,8 +1,32 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
-/* global settings */
 body {
-  font-size: small;
-  background-color: #F9F8FC;
+  color: gray;
+}
+
+.card-deck {
+  height: 6rem;
+  margin: 1rem;
+}
+
+.card {
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .bg-info;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    background-color: gray !important;
+  }
+}
+
+.dropdown-item {
+  color: gray;
+  &.active, &:active {
+    background-color: theme-color("info");
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }

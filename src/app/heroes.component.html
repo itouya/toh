@@ -1,10 +1,11 @@
 <h2>My Heroes</h2>
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
+<form class="form-inline">
+  <label class="sr-only" for="heroNameInput">Hero name:</label>
+  <input type="text" id="heroNameInput" #heroName placeholder="Enter Hero Name" />
+  <button type="button" class="btn btn-primary" (click)="add(heroName.value); heroName.value=''">
     Add
   </button>
-</div>
+</form>
 <table class="table table-striped table-hover">
   <thead>
     <tr>

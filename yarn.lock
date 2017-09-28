@@ -1127,9 +1127,9 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap@^4.0.0-beta:
+"bootstrap@https://github.com/twbs/bootstrap.git":
   version "4.0.0-beta"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-beta.tgz#dc5928175d2e71310bc668cf9e05a907211b72a6"
+  resolved "https://github.com/twbs/bootstrap.git#0e054fb9c8c2de0575cd1d7a1ef5dc0e61023e51"
 
 brace-expansion@^1.1.7:
   version "1.1.8"
