@@ -1,39 +1,24 @@
 <h2>My Heroes</h2>
 <form class="form-inline">
-  <label class="sr-only" for="heroNameInput">Hero name:</label>
-  <input type="text" id="heroNameInput" #heroName placeholder="Enter Hero Name" />
-  <button type="button" class="btn btn-primary" (click)="add(heroName.value); heroName.value=''">
+  <input type="text" placeholder="Enter Hero Name" />
+  <button type="button" class="btn btn-sm btn-primary" (click)="add(heroName.value); heroName.value=''">
     Add
   </button>
 </form>
 <table class="table table-striped table-hover">
-  <thead>
+  <thead class="bg-info">
     <tr>
-      <th scope="col">id</th>
+      <th scope="col">#</th>
       <th scope="col">name</th>
-      <th>delete</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor = "let hero of heroes">
       <th scope="row">{{hero.id}}</th>
       <td>{{hero.name}}</td>
-      <td><button class="delete">x</button></td>
+			<td><button class="delete"><span class="oi oi-x" aria="hidden"></span></button></td>
     </tr>
   </tbody>
 </table>
-<!-- <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero">
-    <span class="mybadge">{{hero.id}}</span>
-    <span>{{hero.name}}</span>
-    <button class="delete"
-      (click)="delete(hero); $event.stopPropagation()">x</button>
-  </li>
-</ul>
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="open()">View Details</button>
-</div> -->
+

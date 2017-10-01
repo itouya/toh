@@ -75,6 +75,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "lite-server": "^2.2.2",
     "lodash": "^4.16.2",
+    "open-iconic": "^1.1.1",
     "phantomjs-prebuilt": "^2.1.7",
     "protractor": "~5.1.0",
     "rollup": "^0.41.6",
