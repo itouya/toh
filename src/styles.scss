@@ -30,3 +30,28 @@ body {
     cursor: pointer;
   }
 }
+
+.hero-list {
+  thead {
+    background-color: gray;
+    color: white;
+    th.hero_id {
+      width: 2em;
+    }
+    th.hero_delete {
+      width: 2em;
+    }
+  }
+  tbody:hover {
+    cursor: pointer;
+  }
+  tbody button.delete {
+    color: red;
+    background-color: transparent;
+    border: unset;
+    &:hover {
+      background-color: gray;
+      cursor: pointer;
+    }
+  }
+}

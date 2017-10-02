@@ -20,9 +20,9 @@ export class HeroesComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router) { }
 
-  open(): void {
+  open(hero: Hero): void {
     const modalRef = this.modalService.open(HeroDetailComponent);
-    modalRef.componentInstance.hero = this.selectedHero;
+    modalRef.componentInstance.hero = hero;
   }
 
   getHeroes(): void {

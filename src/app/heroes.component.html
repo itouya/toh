@@ -5,19 +5,19 @@
     Add
   </button>
 </form>
-<table class="table table-striped table-hover">
-  <thead class="bg-info">
+<table class="table table-sm table-bordered table-striped table-hover hero-list">
+  <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">name</th>
-      <th scope="col"></th>
+      <th class="hero_id" scope="col">#</th>
+      <th class="hero_name" scope="col">name</th>
+      <th class="hero_delete" scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let hero of heroes">
-      <th scope="row">{{hero.id}}</th>
+    <tr *ngFor = "let hero of heroes" (click)="open(hero)">
+      <td scope="row">{{hero.id}}</td>
       <td>{{hero.name}}</td>
-			<td><button class="delete"><span class="oi oi-x" aria="hidden"></span></button></td>
+			<td><button class="delete"><span class="oi oi-circle-x" aria="hidden"></span></button></td>
     </tr>
   </tbody>
 </table>
