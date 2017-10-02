@@ -42,16 +42,23 @@ body {
       width: 2em;
     }
   }
-  tbody:hover {
-    cursor: pointer;
-  }
-  tbody button.delete {
-    color: red;
-    background-color: transparent;
-    border: unset;
+  tbody {
+    td.hero_id {
+      background-color: theme-color("info");
+      color: white;
+      text-align: right;
+    }
     &:hover {
-      background-color: gray;
       cursor: pointer;
+    }
+    button.delete {
+      color: red;
+      background-color: transparent;
+      border: unset;
+      &:hover {
+        background-color: gray;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -15,9 +15,9 @@
   </thead>
   <tbody>
     <tr *ngFor = "let hero of heroes" (click)="open(hero)">
-      <td scope="row">{{hero.id}}</td>
+      <td class="hero_id" scope="row">{{hero.id}}</td>
       <td>{{hero.name}}</td>
-			<td><button class="delete"><span class="oi oi-circle-x" aria="hidden"></span></button></td>
+			<td><button class="delete" (click)="delete(hero);$event.stopPropagation()"><span class="oi oi-circle-x" aria="hidden"></span></button></td>
     </tr>
   </tbody>
 </table>
