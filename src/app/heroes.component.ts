@@ -9,16 +9,21 @@ import { HeroDetailComponent } from './hero-detail.component';
 @Component({
   selector: 'my-heroes',
   templateUrl: './heroes.component.html',
-  //styleUrls: [ './heroes.component.css' ]
+  // styleUrls: [ './heroes.component.css' ]
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-  selectedHero: Hero;
+  page: number;
+  collectionSize: number;
+  pageSize: number;
 
   constructor(
     private heroService: HeroService,
     private modalService: NgbModal,
-    private router: Router) { }
+    private router: Router) {
+      this.pageSize = 5;
+      this.page = 1;
+    }
 
   open(hero: Hero): void {
     const modalRef = this.modalService.open(HeroDetailComponent);
@@ -28,7 +33,7 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService
         .getHeroes()
-        .then(heroes => this.heroes = heroes);
+        .then(heroes => {this.heroes = heroes; this.collectionSize = this.heroes.length;});
   }
 
   add(name: string): void {
@@ -37,7 +42,7 @@ export class HeroesComponent implements OnInit {
     this.heroService.create(name)
       .then(hero => {
         this.heroes.push(hero);
-        this.selectedHero = null;
+        this.collectionSize = this.heroes.length;
       });
   }
 
@@ -46,7 +51,7 @@ export class HeroesComponent implements OnInit {
         .delete(hero.id)
         .then(() => {
           this.heroes = this.heroes.filter(h => h !== hero);
-          if (this.selectedHero === hero) { this.selectedHero = null; }
+          this.collectionSize = this.heroes.length;
         });
   }
 
@@ -54,11 +59,9 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+  range(): Hero[] {
+    let start = (this.page - 1) * this.pageSize;
+    let end = start + this.pageSize;
+    return this.heroes.slice(start, end);
   }
 }
