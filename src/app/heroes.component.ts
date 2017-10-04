@@ -12,17 +12,15 @@ import { HeroDetailComponent } from './hero-detail.component';
   // styleUrls: [ './heroes.component.css' ]
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
-  page: number;
-  collectionSize: number;
-  pageSize: number;
+  heroes: Hero[] = [];
+  page: number = 1;
+  collectionSize: number = 0;
+  pageSize: number = 5;
 
   constructor(
     private heroService: HeroService,
     private modalService: NgbModal,
     private router: Router) {
-      this.pageSize = 5;
-      this.page = 1;
     }
 
   open(hero: Hero): void {
