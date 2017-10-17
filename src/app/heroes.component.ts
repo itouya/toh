@@ -40,7 +40,7 @@ export class HeroesComponent implements OnInit {
     name = name.trim();
     if (!name) { return; }
     this.heroService.create(name)
-      .map(hero => {
+      .subscribe(hero => {
         this.heroes.push(hero);
         this.collectionSize = this.heroes.length;
       });
@@ -49,7 +49,7 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroService
         .delete(hero.id)
-        .map(() => {
+        .subscribe(() => {
           this.heroes = this.heroes.filter(h => h !== hero);
           this.collectionSize = this.heroes.length;
         });

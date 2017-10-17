@@ -13,6 +13,6 @@ export class HeroSearchService {
 
   search(term: string): Observable<any> {
     return this.http
-               .get(`api/heroes/?name=${term}`);
+               .get(`http://localhost:8080/api/hero/?name=${term}`);
   }
 }
