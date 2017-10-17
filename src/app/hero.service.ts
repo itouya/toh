@@ -1,62 +1,46 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
 
 import { Hero } from './hero';
 
 @Injectable()
 export class HeroService {
 
-  private headers = new Headers({'Content-Type': 'application/json'});
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
+  private heroesUrl = 'http://localhost:8080/api/hero';  // URL to web api
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getHeroes(): Promise<Hero[]> {
-    return this.http.get(this.heroesUrl)
-               .toPromise()
-               .then(response => response.json().data as Hero[])
-               .catch(this.handleError);
+  getHeroes(): Observable<any> {
+    return this.http.get(this.heroesUrl);
   }
 
-
-  getHero(id: number): Promise<Hero> {
+  getHero(id: number): Observable<any> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.get(url)
-      .toPromise()
-      .then(response => response.json().data as Hero)
-      .catch(this.handleError);
+    return this.http.get(url);
   }
 
-  delete(id: number): Promise<void> {
+  delete(id: number): Observable<any> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
-      .toPromise()
-      .then(() => null)
-      .catch(this.handleError);
+    return this.http.delete(url, {headers: this.headers});
   }
 
-  create(name: string): Promise<Hero> {
+  create(name: string): Observable<any> {
     return this.http
-      .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
-      .toPromise()
-      .then(res => res.json().data as Hero)
-      .catch(this.handleError);
+      .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers});
   }
 
-  update(hero: Hero): Promise<Hero> {
+  update(hero: Hero): Observable<any> {
     const url = `${this.heroesUrl}/${hero.id}`;
     return this.http
-      .put(url, JSON.stringify(hero), {headers: this.headers})
-      .toPromise()
-      .then(() => hero)
-      .catch(this.handleError);
+      .put(url, JSON.stringify(hero), {headers: this.headers});
   }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
+//  private handleError(error: any): Observable<any> {
+//    console.error('An error occurred', error); // for demo purposes only
+//    return Observable.reject(error.message || error);
+//  }
 }
 

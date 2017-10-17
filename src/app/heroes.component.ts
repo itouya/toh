@@ -30,15 +30,17 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService
-        .getHeroes()
-        .then(heroes => {this.heroes = heroes; this.collectionSize = this.heroes.length;});
+        .getHeroes().subscribe(heroes => {
+          this.heroes = heroes;
+          this.collectionSize = this.heroes.length;
+        });
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
     this.heroService.create(name)
-      .then(hero => {
+      .map(hero => {
         this.heroes.push(hero);
         this.collectionSize = this.heroes.length;
       });
@@ -47,7 +49,7 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroService
         .delete(hero.id)
-        .then(() => {
+        .map(() => {
           this.heroes = this.heroes.filter(h => h !== hero);
           this.collectionSize = this.heroes.length;
         });

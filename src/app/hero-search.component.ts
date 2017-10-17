@@ -20,7 +20,7 @@ import { HeroSearchService } from './hero-search.service';
 @Component({
   selector: 'hero-search',
   templateUrl: './hero-search.component.html',
-  //styleUrls: [ './hero-search.component.css' ],
+  // styleUrls: [ './hero-search.component.css' ],
   providers: [HeroSearchService]
 })
 export class HeroSearchComponent {

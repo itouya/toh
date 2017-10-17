@@ -19,6 +19,6 @@ export class HeroDetailComponent {
 
   save(): void {
     this.heroService.update(this.hero)
-      .then(() => this.activeModal.close('Close Click'));
+      .map(() => this.activeModal.close('Close Click'));
   }
 }
