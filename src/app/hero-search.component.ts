@@ -34,13 +34,14 @@ export class HeroSearchComponent {
     private modalService: NgbModal) {}
 
   formatMatches = (value: any) => value.name || '';
+
   search = (text$: Observable<string>) =>
     text$
       .debounceTime(300)
       .distinctUntilChanged()
       .do(() => this.searching = true)
-    .switchMap(term => term.length < 2 ? [] :
-      this.heroSearchService.search(term)
+      .switchMap(term => term.length < 2 ? [] :
+this.heroSearchService.search(term)
       .do(() => this.searchFailed = false)
       .catch(() => {
         this.hero = null;
