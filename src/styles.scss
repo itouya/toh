@@ -13,7 +13,6 @@ body {
   @extend .justify-content-center;
   @extend .align-items-center;
   @extend .bg-info;
-  height: 6rem;
   color: white;
   &:hover {
     cursor: pointer;

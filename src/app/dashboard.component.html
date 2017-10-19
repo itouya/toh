@@ -1,7 +1,10 @@
 <h3>Top Heroes</h3>
 <div class="card-deck">
   <div *ngFor="let hero of heroes" class="card" (click)="open(hero)">
-    <h4>{{hero.name}}</h4>
+    <img class="card-img-top" src="{{hero.account_image}}">
+    <div class="card-body">
+      <h4>{{hero.name}}</h4>
+    </div>
   </div>
 </div>
 <hero-search></hero-search>
