@@ -30,7 +30,7 @@ export class HeroService {
   // TODO: account_image set default value
   create(name: string): Observable<any> {
     return this.http
-      .post(this.heroesUrl, JSON.stringify({name: name, account_image: '/assets/images/default.jpeg'}), {headers: this.headers});
+      .post(this.heroesUrl, JSON.stringify({name: name, account_image: '/assets/images/default.png'}), {headers: this.headers});
   }
 
   update(hero: Hero): Observable<any> {
