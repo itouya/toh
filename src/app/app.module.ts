@@ -1,16 +1,12 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-// import { HttpModule }    from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgbModule }     from '@ng-bootstrap/ng-bootstrap';
 
+import { LoggingInterceptor } from './logging-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
-
-// Imports for loading & configuring the in-memory web api
-// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './dashboard.component';
@@ -24,8 +20,6 @@ import { HeroSearchComponent }  from './hero-search.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-//    HttpModule,
-//    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
     NgbModule.forRoot()
   ],
@@ -36,7 +30,14 @@ import { HeroSearchComponent }  from './hero-search.component';
     HeroesComponent,
     HeroSearchComponent
   ],
-  providers: [ HeroService ],
+  providers: [
+    HeroService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptor,
+      multi: true
+    }
+   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ HeroDetailComponent ]
 })

@@ -5,13 +5,18 @@
   </button>
 </div>
 <div class="modal-body">
-  <div>
-    <label>id: </label>{{hero.id}}
+  <div class="card">
+    <img class="card-img-top" src="{{hero.account_image}}">
+    <div class="card-body">
+      <div>
+        <label>id: </label>{{hero.id}}
+      </div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="hero.name" placeholder="name" />
+      </div>
+    </div>
   </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name" />
-   </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close Click')">Close</button>
