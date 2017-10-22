@@ -6,7 +6,13 @@
 </div>
 <div class="modal-body">
   <div class="card">
-    <img class="card-img-top" src="{{hero.account_image}}">
+    <img class="card-img-top" id="account_image" src="{{hero.account_image}}">
+    <div>
+      <input class="fileInput" type="file" (change)="previewImage($event)">
+      <p *ngIf="fileChange">
+        <button class="btn" (click)="fileUpload()">アカウント画像を更新する</button>
+      </p>
+    </div>
     <div class="card-body">
       <div>
         <label>id: </label>{{hero.id}}
