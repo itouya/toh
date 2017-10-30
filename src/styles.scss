@@ -9,7 +9,7 @@ body {
   margin: 1rem;
 }
 
-.card {
+.card-deck > .card {
   @extend .justify-content-center;
   @extend .align-items-center;
   @extend .bg-info;

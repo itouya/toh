@@ -5,10 +5,12 @@
   </button>
 </div>
 <div class="modal-body">
-  <div class="card" #accountCard>
-    <img class="card-img-top" src="http://localhost:8080/images/{{hero.id}}.jpg">
-    <input type="file" class="btn" (change)="preview($event)">
-    <button type="button" class="btn" [disabled]="isUnchanged" (click)="upload()">更新</button>
+  <div class="card">
+    <img class="card-img-top" id="account_image" src="http://localhost:8080/{{hero.account_image}}">
+    <div>
+      <input class="fileInput" type="file" (change)="previewImage($event)">
+      <button class="btn" (click)="fileUpload()" [disabled]="isUnChange">アカウント画像を更新する</button>
+    </div>
     <div class="card-body">
       <div>
         <label>id: </label>{{hero.id}}
