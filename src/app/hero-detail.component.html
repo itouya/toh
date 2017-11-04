@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4>{{hero.name}} details!</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross Click')">
+  <button type="button" class="close" aria-label="Close" (click)="close()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -24,6 +24,6 @@
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close Click')">Close</button>
+  <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
   <button type="button" class="btn btn-outline-primary" (click)="save()">Save</button>
 </div>

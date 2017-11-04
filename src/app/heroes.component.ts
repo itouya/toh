@@ -15,7 +15,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   page: number = 1;
   collectionSize: number = 0;
-  pageSize: number = 5;
+  pageSize: number = 20;
 
   constructor(
     private heroService: HeroService,

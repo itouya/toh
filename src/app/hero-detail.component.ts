@@ -30,6 +30,10 @@ export class HeroDetailComponent {
       .subscribe(() => this.activeModal.close('Close Click'));
   }
 
+  close(): void {
+    this.activeModal.close('Close Click');
+  }
+
   previewImage(fileInput: any): void {
     if (fileInput.target.files && fileInput.target.files[0]) {
       this.imageFile = fileInput.target.files[0];
