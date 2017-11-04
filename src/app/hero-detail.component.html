@@ -10,6 +10,7 @@
     <div>
       <input class="fileInput" type="file" (change)="previewImage($event)">
       <button class="btn" (click)="fileUpload()" [disabled]="isUnChange">アカウント画像を更新する</button>
+      <button class="btn" (click)="resetImage(hero)" [disabled]="isDefault(hero.account_image)">デフォルトに戻す</button>
     </div>
     <div class="card-body">
       <div>

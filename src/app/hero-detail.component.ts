@@ -56,4 +56,16 @@ export class HeroDetailComponent {
               });
     this.isUnChange = true;
   }
+
+  isDefault(imagePath: String): boolean {
+    if(imagePath === '/images/default.png') {
+      return true;
+    }
+    return false;
+  }
+
+  resetImage(hero: Hero): void {
+    hero.account_image = '/images/default.png';
+    this.heroService.update(hero).subscribe();
+  }
 }
