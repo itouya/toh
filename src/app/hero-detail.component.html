@@ -4,7 +4,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<!-- <div class="modal-body">
   <div class="card">
     <img class="card-img-top" id="account_image" src="http://localhost:8080/{{hero.account_image}}">
     <div>
@@ -22,8 +22,60 @@
       </div>
     </div>
   </div>
+</div> -->
+<div class="cnotainer" style="margin:1rem">
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="idtext">id: </label>
+          <div class="col-sm-10">
+            <input type="text" readonly id="idtext" class="form-control-plaintext" value="{{hero.id}}"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">name: </label>
+          <input class="form-control" [(ngModel)]="hero.name" placeholder="name" name="name" required/>
+        </div>
+        <div class="form-group">
+          <label for="name_kana" >name_kana: </label>
+          <input class="form-control" [(ngModel)]="hero.name_kana" placeholder="kana" name="name_kana"/>
+        </div>
+        <div class="form-group">
+          <label for="mail_address">mail_address: </label>
+          <input type="email" class="form-control" [(ngModel)]="hero.mail_address" placeholder="mailaddress" name="mail_address"/>
+        </div>
+        <div class="form-group">
+          <label for="date_of_birth">date_of_birth: </label>
+          <input class="form-control" [(ngModel)]="hero.date_of_birth" placeholder="date_of_birth" name="date_of_birth"/>
+        </div>
+        <div class="form-group">
+          <label for="place_of_birth">place_of_birth: </label>
+          <input class="form-control" [(ngModel)]="hero.place_of_birth" placeholder="place_of_birth" name="place_of_birth"/>
+        </div>
+        <div class="form-group">
+          <label for="blood_type">blood_type: </label>
+          <input class="form-control" [(ngModel)]="hero.blood_type" placeholder="blood_type" name="blood_type"/>
+        </div>
+        <div class="form-group">
+          <!-- <button class="form-control" type="button" class="btn btn-outline-dark" (click)="close()">Close</button> -->
+          <button class="form-control" type="button" class="btn btn-outline-primary" (click)="save()">更新</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <img class="img-thumbnail" id="account_image" src="http://localhost:8080/{{hero.account_image}}">
+        <div>
+          <input type="file" class="form-control-file" type="file" (change)="previewImage($event)">
+          <button class="btn form-control" (click)="fileUpload()" [disabled]="isUnChange">アカウント画像を更新する</button>
+          <button class="btn form-control" (click)="resetImage(hero)" [disabled]="isDefault(hero.account_image)">デフォルトに戻す</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
-  <button type="button" class="btn btn-outline-primary" (click)="save()">Save</button>
+  <!-- <button type="button" class="btn btn-outline-primary" (click)="save()">Save</button> -->
 </div>

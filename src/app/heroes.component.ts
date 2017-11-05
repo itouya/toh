@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal }          from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions }          from '@ng-bootstrap/ng-bootstrap';
 import { Router }            from '@angular/router';
 
 import { Hero }                from './hero';
@@ -24,7 +24,10 @@ export class HeroesComponent implements OnInit {
     }
 
   open(hero: Hero): void {
-    const modalRef = this.modalService.open(HeroDetailComponent);
+    let options: NgbModalOptions = {
+      size: 'lg'
+    };
+    const modalRef = this.modalService.open(HeroDetailComponent, options);
     modalRef.componentInstance.hero = hero;
   }
 

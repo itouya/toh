@@ -39,7 +39,7 @@ export class HeroDetailComponent {
       this.imageFile = fileInput.target.files[0];
       const reader = new FileReader();
       reader.onload = ((e) => {
-        this._el.querySelector('.card-img-top').setAttribute('src', e.target['result']);
+        this._el.querySelector('#account_image').setAttribute('src', e.target['result']);
         this.isUnChange = false;
       });
       reader.readAsDataURL(this.imageFile);

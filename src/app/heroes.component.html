@@ -10,6 +10,11 @@
     <tr>
       <th class="hero_id" scope="col">#</th>
       <th class="hero_name" scope="col">name</th>
+      <th class="hero_name" scope="col">name_kana</th>
+      <th class="hero_name" scope="col">mail_address</th>
+      <th class="hero_name" scope="col">date_of_birth</th>
+      <th class="hero_name" scope="col">place_of_birth</th>
+      <th class="hero_name" scope="col">blood_type</th>
       <th class="hero_delete" scope="col"></th>
     </tr>
   </thead>
@@ -17,6 +22,11 @@
     <tr *ngFor = "let hero of range()" (click)="open(hero)">
       <td class="hero_id" scope="row">{{hero.id}}</td>
       <td>{{hero.name}}</td>
+      <td>{{hero.name_kana}}</td>
+      <td>{{hero.mail_address}}</td>
+      <td>{{hero.date_of_birth}}</td>
+      <td>{{hero.place_of_birth}}</td>
+      <td>{{hero.blood_type}}</td>
 			<td><button class="delete" (click)="delete(hero);$event.stopPropagation()"><span class="oi oi-circle-x" aria="hidden"></span></button></td>
     </tr>
   </tbody>

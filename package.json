@@ -46,7 +46,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.4.1",
+    "@angular/cli": "^1.5.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
     "@types/angular": "^1.5.16",
     "@types/angular-animate": "^1.5.5",

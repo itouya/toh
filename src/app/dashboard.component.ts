@@ -1,6 +1,6 @@
 import { HeroDetailComponent } from './hero-detail.component';
 import { Component, OnInit } from '@angular/core';
-import { NgbModal }          from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions }          from '@ng-bootstrap/ng-bootstrap';
 
 import { Hero }        from './hero';
 import { HeroService } from './hero.service';
@@ -25,7 +25,10 @@ export class DashboardComponent implements OnInit {
   }
 
   open(hero: Hero): void {
-    const modalRef = this.modalService.open(HeroDetailComponent);
+    let options: NgbModalOptions = {
+      size: 'lg'
+    };
+    const modalRef = this.modalService.open(HeroDetailComponent, options);
     modalRef.componentInstance.hero = hero;
   }
 }
